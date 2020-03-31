@@ -17,4 +17,28 @@
 
 package com.example.android.marsrealestate.network
 
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.http.GET
+
 private const val BASE_URL = "https://mars.udacity.com/"
+
+private val retrofit = Retrofit.Builder()
+        .addConverterFactory(ScalarsConverterFactory.create()) // Converting the retrieved json to a primitive string
+        .baseUrl(BASE_URL)
+        .build()
+
+// Defining an interface that defines how retrofit talks with our web server
+interface MarsApiService {
+    @GET("realestate")
+    fun getProperties():
+            // The call object is used to start the request
+            Call<String>
+}
+
+object MarsApi {
+    val retrofitService : MarsApiService by lazy {
+        retrofit.create(MarsApiService::class.java)
+    }
+}

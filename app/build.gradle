@@ -29,6 +29,8 @@ android {
     defaultConfig {
         applicationId "com.example.android.marsrealestate"
         minSdkVersion 19
+        // For retrofit 2.7.1 Compatibility
+//        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -43,6 +45,11 @@ android {
     androidExtensions {
         experimental = true
     }
+    // For retrofit 2.7.1 Compatibility
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
 }
 
 dependencies {
@@ -63,4 +70,8 @@ dependencies {
 
     // Core with Ktx
     implementation "androidx.core:core-ktx:$version_core"
+
+    // Retrofit HTTP REST client
+    implementation "com.squareup.retrofit2:retrofit: $version_retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
 }
