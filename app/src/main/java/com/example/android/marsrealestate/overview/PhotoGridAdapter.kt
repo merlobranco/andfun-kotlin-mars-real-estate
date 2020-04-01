@@ -50,6 +50,7 @@ class PhotoGridAdapter : ListAdapter<MarsProperty, PhotoGridAdapter.MarsProperty
             RecyclerView.ViewHolder(binding.root) {
         fun bind(marsProperty: MarsProperty) {
             binding.property = marsProperty
+            // The pending updates are executed immediately
             binding.executePendingBindings()
         }
     }
