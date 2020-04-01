@@ -39,9 +39,9 @@ class OverviewViewModel : ViewModel() {
     val status: LiveData<String>
         get() = _status
 
-    private val _property = MutableLiveData<MarsProperty>()
-    val property: LiveData<MarsProperty>
-        get() = _property
+    private val _properties = MutableLiveData<List<MarsProperty>>()
+    val properties: LiveData<List<MarsProperty>>
+        get() = _properties
 
     // Creating a co-routine Job and a CoroutineScope using the Main Dispatcher
     private var viewModelJob = Job()
@@ -64,7 +64,7 @@ class OverviewViewModel : ViewModel() {
                 // Await is non-blocking, which is important because we are on the scope of UI thread
                 var listResult = getPropertiesDeferred.await()
                 if (listResult.isNotEmpty()) {
-                    _property.value = listResult[0]
+                    _properties.value = listResult
                 }
                 _status.value = "Success: ${listResult.size} Mars properties retrieved"
             } catch (e: Exception) {
