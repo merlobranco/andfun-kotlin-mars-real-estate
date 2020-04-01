@@ -44,7 +44,9 @@ class OverviewFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = FragmentOverviewBinding.inflate(inflater)
-        binding.photosGrid.adapter = PhotoGridAdapter()
+        binding.photosGrid.adapter = PhotoGridAdapter(PhotoGridAdapter.OnClickListener {
+            viewModel.displayPropertyDetails(it)
+        })
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
