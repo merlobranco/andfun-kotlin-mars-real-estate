@@ -17,6 +17,7 @@
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+// Required for Parceling
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs"
@@ -42,6 +43,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    // Required for Parceling
     androidExtensions {
         experimental = true
     }
