@@ -46,11 +46,13 @@ class PhotoGridAdapter : ListAdapter<MarsProperty, PhotoGridAdapter.MarsProperty
         }
     }
 
+    // Custom ViewHolder for displaying our content (Mars Property)
     class MarsPropertyViewHolder(private var binding: GridViewItemBinding):
             RecyclerView.ViewHolder(binding.root) {
         fun bind(marsProperty: MarsProperty) {
             binding.property = marsProperty
             // The pending updates are executed immediately
+            // Prevents the recycling view for having extra calculations when it figures out how to display the list
             binding.executePendingBindings()
         }
     }

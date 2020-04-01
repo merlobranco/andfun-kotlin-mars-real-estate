@@ -41,6 +41,10 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
+// Initializing our photo grid adapter with list data
+// Using a binding adapter to set the recyclerview data,
+// will cause data binding to automatically observe the live date for the list of Mars properties on our behalf
+// and therefore this adapter will be called automatically when the Mars property list changes
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
