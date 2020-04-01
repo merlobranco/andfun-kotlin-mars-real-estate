@@ -20,6 +20,7 @@ apply plugin: 'kotlin-android'
 // Required for Parceling
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+// Required for using safeargs
 apply plugin: "androidx.navigation.safeargs"
 
 android {
